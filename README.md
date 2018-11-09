@@ -14,7 +14,7 @@ npm i use-shortcut --save
 
 ## Demo
 
-The simplest way to start playing around with use-debounce is with this CodeSandbox snippet:
+The simplest way to start playing around with use-shortcut is with this CodeSandbox snippet:
 https://codesandbox.io/s/jj8l8y0m79
 
 ```javascript
