@@ -14,14 +14,14 @@ npm i use-shortcut --save
 
 ## Demo
 
-The simplest way to start playing around with use-debounce is with this CodeSandbox snippet:
+The simplest way to start playing around with use-shortcut is with this CodeSandbox snippet:
 https://codesandbox.io/s/jj8l8y0m79
 
 ```javascript
 import React, { useState } from 'react';
-import useShortcut from 'use-shortcut';
+import useShortcuts from 'use-shortcut';
 
-export default function Input() {
+export default function MyComponent() {
   const [activeKeys, isShortcut] = useShortcuts();
   const handleClick = () => {
     if (isShortcut('alt+shift')) {
