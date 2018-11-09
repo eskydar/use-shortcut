@@ -19,9 +19,9 @@ https://codesandbox.io/s/jj8l8y0m79
 
 ```javascript
 import React, { useState } from 'react';
-import useShortcut from 'use-shortcut';
+import useShortcuts from 'use-shortcut';
 
-export default function Input() {
+export default function MyComponent() {
   const [activeKeys, isShortcut] = useShortcuts();
   const handleClick = () => {
     if (isShortcut('alt+shift')) {
