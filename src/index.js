@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useShortcuts = () => {
+const useShortcut = () => {
   const [newActiveKeys, setNewActiveKeys] = useState([]);
 
   const handleKeydown = (e) => {
@@ -25,4 +25,4 @@ const useShortcuts = () => {
   return [newActiveKeys, isShortcut];
 };
 
-export default useShortcuts;
+export default useShortcut;

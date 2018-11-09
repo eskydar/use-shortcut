@@ -19,10 +19,10 @@ https://codesandbox.io/s/jj8l8y0m79
 
 ```javascript
 import React, { useState } from 'react';
-import useShortcuts from 'use-shortcut';
+import useShortcut from 'use-shortcut';
 
 export default function MyComponent() {
-  const [activeKeys, isShortcut] = useShortcuts();
+  const [activeKeys, isShortcut] = useShortcut();
   const handleClick = () => {
     if (isShortcut('alt+shift')) {
       console.log('We have a shortcut pressed!');
