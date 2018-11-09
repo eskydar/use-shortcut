@@ -1,32 +1,32 @@
 {
-    "name": "use-shortcut",
-    "version": "0.0.1",
-    "description": "A key shortcut hook for React",
-    "main": "lib/index.js",
-    "scripts": {
-      "build": "babel ./src --out-dir ./lib"
-    },
-    "repository": {
-      "type": "git",
-      "url": "git+ssh://git@github.com/eskydar/use-shortcut.git"
-    },
-    "keywords": [
-      "key-combination",
-      "react-hook",
-      "react",
-      "shortcut",
-      "keybinding"
-    ],
-    "author": "Sebastiaan van Arkens (sebastiaan@vanarkens.nl)",
-    "license": "MIT",
-    "bugs": {
-      "url": "https://github.com/eskydar/use-shortcut/issues"
-    },
-    "peerDependencies": {},
-    "homepage": "https://github.com/eskydar/use-shortcut#readme",
-    "devDependencies": {
-      "babel-cli": "^6.26.0",
-      "babel-plugin-transform-object-rest-spread": "^6.26.0",
-      "babel-preset-env": "^1.7.0"
-    }
+  "name": "use-shortcut",
+  "version": "0.0.1",
+  "description": "A key shortcut hook for React",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "babel ./src --out-dir ./lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/eskydar/use-shortcut.git"
+  },
+  "keywords": [
+    "key-combination",
+    "react-hook",
+    "react",
+    "shortcut",
+    "keybinding"
+  ],
+  "author": "Sebastiaan van Arkens (sebastiaan@vanarkens.nl)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eskydar/use-shortcut/issues"
+  },
+  "peerDependencies": {},
+  "homepage": "https://github.com/eskydar/use-shortcut#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
   }
+}
