@@ -2,15 +2,17 @@ import { useState, useEffect } from 'react';
 
 import keycodes from './keycodes';
 
+const getKeyName = (code) => keycodes[code];
+
 const useShortcut = () => {
   const [newActiveKeys, setNewActiveKeys] = useState([]);
 
   const handleKeydown = (e) => {
-    if (newActiveKeys.indexOf(keycodes[e.keyCode]) > -1) return;
-    setNewActiveKeys([...newActiveKeys, keycodes[e.keyCode]]);
+    if (newActiveKeys.indexOf(getKeyName(e.keyCode)) > -1) return;
+    setNewActiveKeys([...newActiveKeys, getKeyName(e.keyCode)]);
   };
 
-  const handleKeyup = (e) => setNewActiveKeys([...newActiveKeys.filter((key) => key !== keycodes[e.keyCode])]);
+  const handleKeyup = (e) => setNewActiveKeys([...newActiveKeys.filter((key) => key !== getKeyName(e.keyCode))]);
 
   const isShortcut = (shortcut) => shortcut.split('+').every((key) => newActiveKeys.indexOf(key) > -1);
 
