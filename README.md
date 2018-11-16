@@ -18,7 +18,7 @@ The simplest way to start playing around with use-shortcut is with this CodeSand
 https://codesandbox.io/s/jj8l8y0m79
 
 ```javascript
-import React, { useState } from 'react';
+import React from 'react';
 import useShortcut from 'use-shortcut';
 
 export default function MyComponent() {
@@ -34,10 +34,23 @@ export default function MyComponent() {
 
   return (
     <div className="App">
-      <h1>Shortcut hook for React</h1>
-      <h2>Allows you to easily check if a shortcut is currently pressed</h2>
       <button onClick={handleClick}>Press me (optionally with alt and shift pressed</button>
     </div>
   );
+}
+```
+
+You can also import `useShortcutEffect` like in the following example:
+
+```javascript
+import React from 'react';
+import { useShortcutEffect } from 'use-shortcut';
+
+export default function MyComponent() {
+  useShortcutEffect(() => {
+    console.log('Shortcut pressed');
+  }, 'alt+1');
+  
+...
 }
 ```
