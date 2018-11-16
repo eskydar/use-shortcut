@@ -30,3 +30,13 @@ const useShortcut = () => {
 };
 
 export default useShortcut;
+
+export const useShortcutEffect = (callback, shortcut) => {
+  const [activeKeys, isShortcut] = useShortcut();
+  useEffect(
+    () => {
+      if (isShortcut(shortcut)) callback();
+    },
+    [activeKeys]
+  );
+};
