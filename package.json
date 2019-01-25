@@ -22,7 +22,10 @@
   "bugs": {
     "url": "https://github.com/eskydar/use-shortcut/issues"
   },
-  "peerDependencies": {},
+  "peerDependencies": {
+    "react": "16.8.0-alpha.1",
+    "react-dom": "16.8.0-alpha.1"
+  },
   "homepage": "https://github.com/eskydar/use-shortcut#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",

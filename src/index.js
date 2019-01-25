@@ -5,7 +5,7 @@ import keycodes from './keycodes';
 const getKeyName = (code) => keycodes[code];
 
 export const useShortcutEffect = (callback, shortcut) => {
-  const [activeKeys, isShortcut] = useShortcut();
+  const [activeKeys, isShortcut] = useShortcut({ preventDefault: true });
   useEffect(
     () => {
       if (isShortcut(shortcut)) callback();
@@ -14,17 +14,26 @@ export const useShortcutEffect = (callback, shortcut) => {
   );
 };
 
-const useShortcut = () => {
-  const [newActiveKeys, setNewActiveKeys] = useState([]);
+const useShortcut = ({ preventDefault = false }) => {
+  const [activeKeys, setActiveKeys] = useState([]);
 
-  const handleKeydown = (e) => {
-    if (newActiveKeys.indexOf(getKeyName(e.keyCode)) > -1) return;
-    setNewActiveKeys([...newActiveKeys, getKeyName(e.keyCode)]);
+  const doPreventDefault = e => {
+    if (preventDefault) e.preventDefault();
   };
 
-  const handleKeyup = (e) => setNewActiveKeys([...newActiveKeys.filter((key) => key !== getKeyName(e.keyCode))]);
+  const handleKeydown = e => {
+    doPreventDefault(e);
+    if (keycodes.hasOwnProperty(e.keyCode) && !~activeKeys.indexOf(getKeyName(e.keyCode))) {
+      setActiveKeys([...activeKeys, getKeyName(e.keyCode)]);
+    }
+  };
 
-  const isShortcut = (shortcut) => shortcut.split('+').every((key) => newActiveKeys.indexOf(key) > -1);
+  const handleKeyup = e => {
+    doPreventDefault(e);
+    setActiveKeys([...activeKeys.filter(key => key !== getKeyName(e.keyCode))]);
+  };
+
+  const isShortcut = shortcut => shortcut.split('+').every(key => ~activeKeys.indexOf(key));
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeydown);
@@ -34,7 +43,7 @@ const useShortcut = () => {
       window.removeEventListener('keydown', handleKeydown);
       window.removeEventListener('keyup', handleKeyup);
     };
-  });
+  }, [activeKeys]);
 
   return [newActiveKeys, isShortcut];
 };
